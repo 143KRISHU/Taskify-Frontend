@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgba(4, 4, 4, 0.87);
+  background-color: #d8f3f8;
+}
+
+/* Board Component CSS of Task Div */
+/* .all_task_div{
+  background-image: repeating-radial-gradient(circle, #00b4d8, #0077b6 10%,white 15%);
+
+} */
+

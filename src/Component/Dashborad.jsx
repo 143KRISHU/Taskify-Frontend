@@ -27,6 +27,10 @@ function Dashborad() {
     const backendResponse = await fetch(backendRoutesAPI.board.access_curr_user_boards.url, {
       method: backendRoutesAPI.board.access_curr_user_boards.method,
       credentials: "include",
+      headers:{
+        'Authorizarion':`Bearer ${user.accessToken}`,
+        'content-type':'application/json' 
+      }
     })
     const finalResponse = await backendResponse.json()
     if (finalResponse.success) {

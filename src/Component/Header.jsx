@@ -13,7 +13,7 @@ import { blue } from '@mui/material/colors';
 
 export default function Header() {
   const user = useSelector((state) => state?.user?.user)
-  console.log( 'Haeder',user)
+  console.log( 'Haeder',user.accessToken)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,10 +24,14 @@ export default function Header() {
     const backendApiResponse = await fetch(backendRoutesAPI.signout.url, {
       method: backendRoutesAPI.signout.method,
       credentials: "include",
+      headers:{
+        'Authorizarion':`Bearer ${user.accessToken}`,
+        'content-type':'application/json' 
+      }
     })
     const finalResponse = await backendApiResponse.json()
     if (finalResponse.success) {
-      toast.success(finalResponse.messsage)
+      alert(finalResponse.messsage)
       dispatch(setUserDetail(null))
       navigate("/");
     }
@@ -106,8 +110,8 @@ export default function Header() {
                             <Avatar sx={{ bgcolor: blue[500] }}>0</Avatar>
                           </Stack>
                           <span className="flex flex-col">
-                            <span className="text-sm font-medium text-gray-900">{user?.fullname}</span>
-                            <span className="text-sm font-medium text-gray-500">@{user?.userName}</span>
+                            <span className="text-sm font-medium text-gray-900">{user?user.fullname:null}</span>
+                            <span className="text-sm font-medium text-gray-500">@{user?user.userName:null}</span>
                           </span>
                         </div>
                         <button className='text-lg text-white bg-[#0077b6] py-1 px-3  rounded-xl border-4 hover:border-4  hover:border-[#0077b6]  hover:text-black hover:bg-white'

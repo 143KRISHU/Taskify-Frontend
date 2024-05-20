@@ -53,7 +53,7 @@ export default function Header() {
               <>
                 <span className="relative inline-block">
                   <Stack direction="row" spacing={2}>
-                    <Avatar sx={{ bgcolor: blue[500] }}>{user?.fullname[0].toUpperCase()}</Avatar>
+                    <Avatar sx={{ bgcolor: blue[500] }}>Hi</Avatar>
                   </Stack>
                   <span className="absolute -bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-600 ring-2 ring-white"></span>
                 </span>

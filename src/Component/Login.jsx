@@ -45,7 +45,7 @@ function Login() {
                   const finalData = await backendAPIResponse.json();
                   
                   if (finalData.success) {
-                        alert(finalData.messsage)
+                        alert(finalData.message)
                         dispatch(setUserDetail(finalData.data))
                         navigate('/dashboard')
                   }

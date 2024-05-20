@@ -17,7 +17,7 @@ function UpdateBoardName({ board,onClose,refresh}) {
   // For creatinng board 
   const handleSubmit = async()=>{
         if(boardName !== ''){
-            alert(`Upadung......`)
+            alert(`Updating......`)
           const backendResponse = await fetch(backendRoutesAPI.board.updateBoard.url,{
             method:backendRoutesAPI.board.updateBoard.method,
             credentials:"include",

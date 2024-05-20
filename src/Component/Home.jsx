@@ -1,31 +1,31 @@
 import React, { useEffect } from 'react'
 import Lottie from 'react-lottie';
 import animation from '../assets/dashboard-anime.json'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 function Home() {
-      
-   //for front page animation Purpose
-   const defaultOptions = {
-      loop: true,
-      autoplay: true,
-      animationData: animation,
-      rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
-    };
 
-    const user = useSelector((state)=>state?.user?.user)
-    const navigate = useNavigate()
+  //for front page animation Purpose
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
-    useEffect(()=>{
-      if(user){
-        navigate('/dashboard')
-      }
-    },[user])
+  const user = useSelector((state) => state?.user?.user)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [user])
 
   return (
-      <div className='h-[90vh] flex justify-center items-center'>
+    <div className='h-[90vh] items-center flex align-middle lg:flex-row sm:flex-col'>
       <Lottie options={defaultOptions}
         height={400}
         width={400} />

@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     getUserDetail()
-  }, [])
+  }, [user])
 
   return (
     <>

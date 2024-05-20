@@ -46,7 +46,7 @@ function Login() {
                   
                   if (finalData.success) {
                         alert(finalData.messsage)
-                        dispatch(setUserDetail(final.data))
+                        dispatch(setUserDetail(finalData.data))
                         try {
                               const response = await fetch(backendRoutesAPI.current_user.url, {
                                     method: backendRoutesAPI.current_user.method,

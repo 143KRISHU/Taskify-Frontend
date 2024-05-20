@@ -47,6 +47,7 @@ function Login() {
                   if (finalData.success) {
                         alert(finalData.messsage)
                         dispatch(setUserDetail(finalData.data))
+                        navigate('/dashboard')
                   }
                   else {
                         if (finalData.message.includes("You are Not Registered")) {

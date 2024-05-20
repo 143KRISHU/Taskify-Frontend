@@ -13,7 +13,11 @@ function App() {
   const getUserDetail = async () => {
     const backendAPIResponse = await fetch(backendRoutesAPI.current_user.url, {
       method: backendRoutesAPI.current_user.method,
-      credentials: "include"
+      credentials: "include",
+      headers:{
+        "Authorization":`Bearer ${user.data.accessToken}`,
+        'content-type':'application/json' 
+      }
     })
     const finalResponse = await backendAPIResponse.json()
     if (finalResponse.success) {

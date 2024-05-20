@@ -13,7 +13,7 @@ import { blue } from '@mui/material/colors';
 
 export default function Header() {
   const user = useSelector((state) => state?.user?.user)
-  console.log( 'Haeder',user)
+  console.log( 'Haeder',user.data)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,7 +23,7 @@ export default function Header() {
   const handleLogout = async () => {
     const backendApiResponse = await fetch(backendRoutesAPI.signout.url, {
       method: backendRoutesAPI.signout.method,
-      credentials: "include"
+      credentials: "include",
     })
     const finalResponse = await backendApiResponse.json()
     if (finalResponse.success) {

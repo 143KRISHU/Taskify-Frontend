@@ -13,7 +13,8 @@ import { blue } from '@mui/material/colors';
 
 export default function Header() {
   const user = useSelector((state) => state?.user?.user)
-  console.log( 'Haeder',user.accessToken)
+  const accessToken = user ? user.accessToken :"undefined"
+  console.log( 'Haeder',accessToken)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)

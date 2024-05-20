@@ -16,6 +16,8 @@ import UpdateBoardName from './UpdateBoradName';
 function Dashborad() {
   const navigate = useNavigate()
   const user = useSelector((state) => state?.user?.user)
+  const data = user?user.data:''
+  console.log('Dashboard',data)
   const [showCreateBoard, setShowCreateBoard] = useState(false)
   const [whichBoradIsUpdating, setWhichBoardIsUpdating] = useState()
   const [showUpdateForm, setShowUpdateForm] = useState(false)

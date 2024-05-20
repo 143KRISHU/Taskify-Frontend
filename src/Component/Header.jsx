@@ -8,13 +8,13 @@ import { useDispatch } from "react-redux";
 import { setUserDetail } from "../Store/userSlice.js"
 import backendRoutesAPI from '../BackendAPiEndPoints/Api.js';
 import { useNavigate } from 'react-router-dom';
-import { toast } from "react-toastify"
 import { blue } from '@mui/material/colors';
 
 export default function Header() {
   const user = useSelector((state) => state?.user?.user)
   const accessToken = user ? user.accessToken :"undefined"
-  console.log( 'Haeder',accessToken)
+  const data =  user ? user.data :"undefined"
+  console.log( 'Haeder',accessToken,'data',data)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)

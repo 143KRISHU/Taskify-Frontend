@@ -13,6 +13,7 @@ import { blue } from '@mui/material/colors';
 
 export default function Header() {
   const user = useSelector((state) => state?.user?.user)
+  console.log( 'Haeder',user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -102,7 +103,7 @@ export default function Header() {
 
                         <div className='flex gap-2'>
                           <Stack direction="row" spacing={2}>
-                            <Avatar sx={{ bgcolor: blue[500] }}>{user?.fullname[0].toUpperCase()}</Avatar>
+                            <Avatar sx={{ bgcolor: blue[500] }}>0</Avatar>
                           </Stack>
                           <span className="flex flex-col">
                             <span className="text-sm font-medium text-gray-900">{user?.fullname}</span>

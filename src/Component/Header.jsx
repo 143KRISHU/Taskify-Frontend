@@ -14,7 +14,6 @@ export default function Header() {
   const user = useSelector((state) => state?.user?.user)
   const accessToken = user ? user.accessToken :"undefined"
   const data =  user ? user.data :"undefined"
-  console.log( 'Haeder',accessToken,'data',data)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,8 +30,9 @@ export default function Header() {
       }
     })
     const finalResponse = await backendApiResponse.json()
+    console.log(finalResponse)
     if (finalResponse.success) {
-      alert(finalResponse.messsage)
+      alert('logged Out')
       dispatch(setUserDetail(null))
       navigate("/");
     }

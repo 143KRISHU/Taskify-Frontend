@@ -7,32 +7,32 @@ import backendRoutesAPI from "./BackendAPiEndPoints/Api";
 import { useEffect } from "react";
 import { useSelector } from 'react-redux';
 function App() {
-  const dispatch = useDispatch()
-  const user = useSelector((state) => state?.user?.user)
+  // const dispatch = useDispatch()
+  // const user = useSelector((state) => state?.user?.user)
 
-  const getUserDetail = async () => {
-    const backendAPIResponse = await fetch(backendRoutesAPI.current_user.url, {
-      method: backendRoutesAPI.current_user.method,
-      credentials: "include",
-      headers:{
-        'Authorizarion':`Bearer ${user.accessToken}`,
-        'content-type':'application/json' 
-      }
-    })
-    const finalResponse = await backendAPIResponse.json()
-    if (finalResponse.success) {
-      dispatch(setUserDetail(finalResponse.data))
-    }
-    else {
-      return
-    }
-  }
+  // const getUserDetail = async () => {
+  //   const backendAPIResponse = await fetch(backendRoutesAPI.current_user.url, {
+  //     method: backendRoutesAPI.current_user.method,
+  //     credentials: "include",
+  //     headers:{
+  //       'Authorizarion':`Bearer ${user.accessToken}`,
+  //       'content-type':'application/json' 
+  //     }
+  //   })
+  //   const finalResponse = await backendAPIResponse.json()
+  //   if (finalResponse.success) {
+  //     dispatch(setUserDetail(finalResponse.data))
+  //   }
+  //   else {
+  //     return
+  //   }
+  // }
 
-  useEffect(() => {
-    if(user){
-      getUserDetail()
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if(user){
+  //     getUserDetail()
+  //   }
+  // }, [user])
 
   return (
     <>

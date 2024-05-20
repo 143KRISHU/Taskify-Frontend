@@ -1,4 +1,4 @@
-const backendMainDomainURL = "http://localhost:3000";
+const backendMainDomainURL = "https://taskify-backend-kbtz.onrender.com";
 
 const backendRoutesAPI = {
       signup: {

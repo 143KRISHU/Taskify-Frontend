@@ -4,7 +4,6 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import backendRoutesAPI from "../BackendAPiEndPoints/Api.js";
-import { toast } from 'react-toastify';
 import LoaderTwo from '../Component/SecondLoader/LoaderTwo.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import {setUserDetail} from "../Store/userSlice.js"
@@ -44,7 +43,6 @@ function Login() {
                   }
                   )
                   const finalData = await backendAPIResponse.json();
-                  console.log(finalData)
                   if (finalData.success) {
                         const response = await fetch(backendRoutesAPI.current_user.url, {
                               method: backendRoutesAPI.current_user.method,
@@ -53,8 +51,9 @@ function Login() {
                             const final = await response.json()
                             console.log(final)
                             if (final.success) {
+                              alert(finalData.message);
                               dispatch(setUserDetail(final.data))
-                              window.location.href='/dashboard'
+                              navigate('/dashboard')
                             }
                             else {
                               return
@@ -63,16 +62,17 @@ function Login() {
                   }
                   else {
                         if (finalData.message.includes("You are Not Registered")) {
-                              toast.error(finalData.message);
+                              alert(finalData.message);
                               navigate("/sign-up");
                         }
                         else {
-                              toast.error(finalData.message)
+                              alert(finalData.message)
                               setIsSubmit(false)
                         }
 
                   }
             } catch (error) {
+                  alert(error)
                   setIsSubmit(false)
             }
       }

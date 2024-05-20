@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Lottie from 'react-lottie';
 import animation from '../assets/dashboard-anime.json'
 import {useNavigate} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 function Home() {
       
    //for front page animation Purpose
@@ -14,7 +15,14 @@ function Home() {
       }
     };
 
+    const user = useSelector((state)=>state?.user?.user)
     const navigate = useNavigate()
+
+    useEffect(()=>{
+      if(user){
+        navigate('/dashboard')
+      }
+    },[user])
 
   return (
       <div className='h-[90vh] flex justify-center items-center'>

@@ -72,23 +72,23 @@ function SignUp() {
       });
       const finalData = await backendAPIResponse.json();
       if (finalData.success) {
-        toast.success(finalData.message)
+        alert(finalData.message)
         navigate("/log-in")
       }
       else {
         if (finalData.message.includes("Customer is already exist with the same email or username")) {
-          toast.error(finalData.message);
+          alert(finalData.message);
           navigate("/log-in");
         }
         else {
-          toast.error(finalData.message)
+          alert(finalData.message)
           setIsSubmit(false)
           navigate("/sign-up")
         }
 
       }
     } catch (error) {
-      toast.error("Signup Error Server is not responding ");
+      alert(`Signup Error Server is not responding - ${error}`);
     }
   }
 

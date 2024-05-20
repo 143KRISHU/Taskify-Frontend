@@ -15,7 +15,7 @@ function App() {
       method: backendRoutesAPI.current_user.method,
       credentials: "include",
       headers:{
-        "Authorization":`Bearer ${user.data.accessToken}`,
+        "Authorization":`Bearer ${user?.accessToken}`,
         'content-type':'application/json' 
       }
     })

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { FaCircleCheck } from "react-icons/fa6";
 import { IoCloseCircle } from "react-icons/io5";
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import backendRoutesAPI from '../BackendAPiEndPoints/Api';
 
 function CreateBoardForm({onClose,refresh}) {
+  const user = useSelector((state) => state?.user?.user)
+
     const[boardName,setBoardName]=useState("")
     // data to send to backend
     const data = {
@@ -17,8 +20,9 @@ function CreateBoardForm({onClose,refresh}) {
           const backendResponse = await fetch(backendRoutesAPI.board.create_board.url,{
             method:backendRoutesAPI.board.create_board.method,
             credentials:"include",
-            headers:{
-              "content-type":"application/json"
+            headers: {
+              'Authorizarion':`Bearer ${user.accessToken}`,
+              "content-type": "application/json"
             },
             body:JSON.stringify(data)
           })

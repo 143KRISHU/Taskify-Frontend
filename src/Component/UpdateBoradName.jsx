@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaCircleCheck } from "react-icons/fa6";
 import { IoCloseCircle } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import backendRoutesAPI from '../BackendAPiEndPoints/Api';
 
 function UpdateBoardName({ board,onClose,refresh}) {
       console.log(board)
+      const user = useSelector((state) => state?.user?.user)
     const[boardName,setBoardName]=useState(board.boardName)
     // data to send to backend
     const data = {
@@ -21,6 +22,7 @@ function UpdateBoardName({ board,onClose,refresh}) {
             method:backendRoutesAPI.board.updateBoard.method,
             credentials:"include",
             headers:{
+              'Authorizarion':`Bearer ${user.accessToken}`,
               "content-type":"application/json"
             },
             body:JSON.stringify(data)

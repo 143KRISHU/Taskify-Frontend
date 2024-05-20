@@ -59,7 +59,7 @@ export default function Header() {
               <>
                 <span className="relative inline-block">
                   <Stack direction="row" spacing={2}>
-                    <Avatar sx={{ bgcolor: blue[500] }}>Hi</Avatar>
+                    <Avatar sx={{ bgcolor: blue[500] }}>{data?data.fullname[0].toUpperCase():null}</Avatar>
                   </Stack>
                   <span className="absolute -bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-600 ring-2 ring-white"></span>
                 </span>
@@ -108,11 +108,11 @@ export default function Header() {
 
                         <div className='flex gap-2'>
                           <Stack direction="row" spacing={2}>
-                            <Avatar sx={{ bgcolor: blue[500] }}>0</Avatar>
+                            <Avatar sx={{ bgcolor: blue[500] }}>{data?data.fullname[0].toUpperCase():null}</Avatar>
                           </Stack>
                           <span className="flex flex-col">
-                            <span className="text-sm font-medium text-gray-900">{user?user.fullname:null}</span>
-                            <span className="text-sm font-medium text-gray-500">@{user?user.userName:null}</span>
+                            <span className="text-sm font-medium text-gray-900">{data?data.fullname:null}</span>
+                            <span className="text-sm font-medium text-gray-500">@{data?data.userName:null}</span>
                           </span>
                         </div>
                         <button className='text-lg text-white bg-[#0077b6] py-1 px-3  rounded-xl border-4 hover:border-4  hover:border-[#0077b6]  hover:text-black hover:bg-white'

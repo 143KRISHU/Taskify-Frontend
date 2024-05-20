@@ -17,7 +17,6 @@ function Dashborad() {
   const navigate = useNavigate()
   const user = useSelector((state) => state?.user?.user)
   const data = user?user.data:''
-  console.log('Dashboard',data)
   const [showCreateBoard, setShowCreateBoard] = useState(false)
   const [whichBoradIsUpdating, setWhichBoardIsUpdating] = useState()
   const [showUpdateForm, setShowUpdateForm] = useState(false)
@@ -106,7 +105,7 @@ function Dashborad() {
             <div className="container w-full px-5 py-2 max-w-[80%] gap-4 flex flex-col  mx-auto bg-[#ffffff]">
               <div className='flex justify-between items-center'>
                 <div className="heading text-[32px] mt-2">
-                  <h1 className='capitalize'>{user.fullname} - Your Boards</h1>
+                  <h1 className='capitalize'>{data?data.fullname:null} - Your Boards</h1>
                 </div>
 
                 <div className='flex justify-between items-center'>
@@ -169,7 +168,7 @@ function Dashborad() {
                                       </IconButton>
                                     </Tooltip>
                                     <Tooltip title="Open Board" arrow>
-                                      <IconButton onClick={() => navigate(`/user/${user._id}/board/${board._id}/${board.boardName}`)} >
+                                      <IconButton onClick={() => navigate(`/user/${data?data._id:null}/board/${board._id}/${board.boardName}`)} >
                                         <IoIosFastforward className='text-xl text-black flex cursor-pointer' />
                                       </IconButton>
                                     </Tooltip>

@@ -43,22 +43,28 @@ function Login() {
                   }
                   )
                   const finalData = await backendAPIResponse.json();
+                  
                   if (finalData.success) {
-                        const response = await fetch(backendRoutesAPI.current_user.url, {
-                              method: backendRoutesAPI.current_user.method,
-                              credentials: "include"
-                            })
-                            const final = await response.json()
-                            console.log(final)
-                            if (final.success) {
-                              alert(finalData.message);
-                              dispatch(setUserDetail(final.data))
-                              navigate('/dashboard')
-                            }
-                            else {
-                              alert(final.message)
-                            }
-                        
+                        alert(finalData.messsage)
+                        dispatch(setUserDetail(final.data))
+                        try {
+                              const response = await fetch(backendRoutesAPI.current_user.url, {
+                                    method: backendRoutesAPI.current_user.method,
+                                    credentials: "include"
+                                  })
+                                  const final = await response.json()
+                                  console.log(final)
+                                  if (final.success) {
+                                    alert(finalData.message);
+                                    navigate('/dashboard')
+                                  }
+                                  else {
+                                    alert(final.message)
+                                    navigate('/home')
+                                  }
+                        } catch (error) {
+                              alert(error)
+                        }
                   }
                   else {
                         if (finalData.message.includes("You are Not Registered")) {

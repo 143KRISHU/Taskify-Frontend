@@ -182,9 +182,12 @@ function Board() {
     if (finalResponse.success) {
       alert(finalResponse.message)
       getAllTasks()
+      categoriseTask()
     }
     else {
       alert(finalResponse.message)
+      getAllTasks()
+      categoriseTask()
     }
   }
 

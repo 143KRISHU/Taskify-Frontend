@@ -39,6 +39,7 @@ function Dashborad() {
     }
     else {
       alert(finalResponse.message)
+      navigate('/home')
     }
   }
 
@@ -67,6 +68,7 @@ function Dashborad() {
       method: backendRoutesAPI.board.deleteBoard.method,
       credentials: "include",
       headers: {
+        'Authorizarion':`Bearer ${user.accessToken}`,
         "content-type": "application/json"
       },
       body: JSON.stringify({ board: board })
